@@ -1,0 +1,36 @@
+public class MainActivity extends AppCompatActivity {
+int res=0;
+    String a;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+    }
+    public void sendFirst(View v)
+    {
+     TextView e1=(TextView) findViewById(R.id.textView);
+        a=e1.getText().toString()+"1";
+        e1.setText(a);
+
+    }
+    public  void add(View v1)
+    {
+        TextView e1=(TextView) findViewById(R.id.textView);
+        String s1=e1.getText().toString();
+        int a = Integer.parseInt(s1);
+        res=a;
+        e1.setText("");
+    }
+    public  void result(View v1)
+    {
+        TextView e1=(TextView) findViewById(R.id.textView);
+        String s2=e1.getText().toString();
+        int a1 = Integer.parseInt(s2);
+        res=res+a1;
+        String finalres= ""+res;
+        e1.setText(finalres);
+    }
+
+}

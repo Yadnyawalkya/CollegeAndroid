@@ -1,0 +1,44 @@
+public class MainActivity extends AppCompatActivity {
+
+    EditText v1,v2;
+    Button b1,b2;
+    String finalv1,finalv2;
+
+    Double first, ans, second;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        v1 = (EditText) findViewById(R.id.editText);
+        v2 = (EditText) findViewById(R.id.editText2);
+        b1 = (Button) findViewById(R.id.button);
+        b2 = (Button) findViewById(R.id.button2);
+    }
+
+    public void operation(){
+        finalv1 = v1.getText().toString();
+        first = Double.parseDouble(finalv1);
+
+        finalv2 = v2.getText().toString();
+        second = Double.parseDouble(finalv2);
+
+    }
+
+    public void clickAdd(View view) {
+            operation();
+            ans = first + second;
+            Toast.makeText(this, "" + ans, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+            intent.putExtra("value1",""+ans);
+            startActivity(intent);
+            finish();
+    }
+
+    public void clickSub(View view){
+        operation();
+        ans = first - second;
+        Toast.makeText(this, ""+ans, Toast.LENGTH_SHORT).show();
+    }
+
+}

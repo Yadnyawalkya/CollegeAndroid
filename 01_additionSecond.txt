@@ -1,0 +1,21 @@
+
+public class SecondActivity extends AppCompatActivity {
+
+    Button b1;
+    TextView t1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        b1 = (Button) findViewById(R.id.button3);
+        t1 = (TextView) findViewById(R.id.textView);
+        String answer = getIntent().getStringExtra("value1");
+        t1.setText(answer);
+    }
+
+    public void clickBack(View view){
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+}

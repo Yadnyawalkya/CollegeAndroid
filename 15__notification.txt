@@ -1,0 +1,8 @@
+public void notification(View v1)
+{
+    NotificationCompat.Builder nb=(NotificationCompat.Builder) new NotificationCompat.Builder(this).setSmallIcon(R.mipmap.ic_launcher).setContentTitle("Urgent Message").setContentText("Text Notification");
+    NotificationManager nm=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+    nm.notify(0,nb.build());
+
+}
+

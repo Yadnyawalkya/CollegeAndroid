@@ -1,0 +1,45 @@
+public class MainActivity extends AppCompatActivity {
+
+    TextView t1,t2;
+    Button b1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        t1 = (TextView) findViewById(R.id.textView);
+        t2 = (TextView) findViewById(R.id.textView2);
+        b1 = (Button) findViewById(R.id.button);
+    }
+
+    public void pickContact(View view) {
+        Intent cp = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
+        startActivityForResult(cp, 0);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        contPicked(data);
+    }
+
+    public void contPicked(Intent data) {
+        Cursor cursor = null;
+        try {
+            String ph = null;
+            String name = null;
+            Uri uri = data.getData();
+            cursor = getContentResolver().query(uri, null, null, null, null);
+            cursor.moveToFirst();
+            int phindex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+            int nameindex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+            ph = cursor.getString(phindex);
+            name = cursor.getString(nameindex);
+            t1.setText(ph);
+            t2.setText(name);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+}

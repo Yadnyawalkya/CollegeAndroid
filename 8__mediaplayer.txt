@@ -1,0 +1,35 @@
+public class MainActivity extends AppCompatActivity {
+    MediaPlayer mp=null;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mp = MediaPlayer.create(this,R.raw.abc);
+    }
+
+    public void mstart(View view)
+    {
+        mp.setLooping(true);
+        mp.start();
+        Toast.makeText(getApplicationContext(),"Song Started",Toast.LENGTH_SHORT).show();
+    }
+    public void mpause(View view)
+    {
+        mp.pause();
+        Toast.makeText(getApplicationContext(),"Song Stopped",Toast.LENGTH_SHORT).show();
+    }
+
+    public void mresume(View view)
+    {
+        mp.start();
+        Toast.makeText(getApplicationContext(),"Song Stopped",Toast.LENGTH_SHORT).show();
+    }
+
+    public void mstop(View view)
+    {
+        mp.stop();
+        Toast.makeText(getApplicationContext(),"Song Stopped",Toast.LENGTH_SHORT).show();
+    }
+}

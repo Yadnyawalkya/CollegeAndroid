@@ -1,0 +1,21 @@
+public class MainActivity extends AppCompatActivity {
+
+    RadioButton rb1;
+    RadioButton rb2;
+    ImageView iv;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        rb1 = (RadioButton) findViewById(R.id.radioButton6);
+        rb2 = (RadioButton) findViewById(R.id.radioButton7);
+        iv = (ImageView) findViewById(R.id.imageView);
+    }
+
+    public void function1(View view) {
+        iv.setImageResource(R.color.colorAccent);
+    }
+    public void function2(View view) {
+        iv.setImageResource(R.color.colorPrimaryDark);
+    }

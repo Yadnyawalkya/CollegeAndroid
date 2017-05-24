@@ -1,0 +1,4 @@
+     String address = t1.getText().toString();
+     Intent intent = new Intent(Intent.ACTION_VIEW);
+     intent.setData(Uri.parse("geo:17,74?q="+address));
+     startActivity(intent);

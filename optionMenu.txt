@@ -1,0 +1,37 @@
+public class MainActivity extends AppCompatActivity {
+
+    Button b1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        b1 = (Button) findViewById(R.id.button2);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.op1:
+                Toast.makeText(this, "op 1", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.op2:
+                Toast.makeText(this, "op 2 ", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.op3:
+                Toast.makeText(this, "op 3", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+}

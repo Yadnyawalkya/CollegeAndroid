@@ -1,0 +1,42 @@
+public class MainActivity extends AppCompatActivity {
+
+    public DatePicker d;
+    public TimePicker tp;
+    BluetoothAdapter ba;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ba=BluetoothAdapter.getDefaultAdapter();
+    }
+
+    public void sendf(View view)
+    {
+        String path="/storage/emulated/0/xxx/xxx.txt";
+        File f=new File(path);
+        f=new File(f.getAbsolutePath());
+        Intent int1=new Intent(Intent.ACTION_SEND);
+        int1.setType("text/plain");
+        int1.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(f));
+        startActivity(int1);
+    }
+
+    public void shownot(View view)
+    {
+        Intent in=new Intent(this,MainActivity.class);
+        PendingIntent pend=PendingIntent.getActivity(this,0,in,0);
+        NotificationCompat.Builder nb=(NotificationCompat.Builder)new NotificationCompat.Builder(this).setContentIntent(pend).setContentTitle("hello").setContentText("gybbhbhbbh").setSmallIcon(R.mipmap.ic_launcher);
+        NotificationManager nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(0, nb.build());
+    }
+
+    public void bon(View view)
+    {
+        ba.enable();
+    }
+    public void boff(View view)
+    {
+        ba.disable();
+    }
+
+}

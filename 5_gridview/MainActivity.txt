@@ -1,0 +1,23 @@
+public class MainActivity extends AppCompatActivity {
+    GridView gridview;
+  /*private String[] data={
+           "ABC","CCC"
+    };*/
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        gridview = (GridView) findViewById(R.id.gridView);
+        // ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,data);
+        ImageAdapter imageAdapter=new ImageAdapter(this);
+        gridview.setAdapter(imageAdapter);
+      /*  gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                Toast.makeText(Image_Grid_view.this, "" + position,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });*/
+    }
+}
